@@ -362,12 +362,30 @@
         }
 
         .apropos-content[data-position="bottom-left"] {
-            bottom: 140px;
+            bottom: 120px;
             left: 60px;
-            top: auto;
+            top: 200px;
             right: 60px;
             width: auto;
             max-width: none;
+            overflow-y: auto;
+        }
+
+        .mlp-mmi-block {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+        }
+
+        .mlp-mmi-block.mlp {
+            width: 55%;
+        }
+
+        .mlp-mmi-block.mmi {
+            width: 65%;
+            margin-left: auto;
         }
 
         .apropos-main-title[data-position="top-left"] {
@@ -1020,40 +1038,40 @@
                     <p>En octobre, j'ai développé une méthode collaborative avec l'IA. Je dirige les projets, je conçois l'architecture, je teste et j'ajuste. Cette approche m'a permis de créer ce portfolio.</p>
                 </div>
                 <div class="about-page" data-page="3">
-                    <!-- Bloc 1 : MLP à gauche -->
-                    <div style="width: 60%; margin-bottom: 25px;">
-                        <p style="font-weight: 600; margin-bottom: 8px;">MLP m'a appris à avoir un regard critique sur l'écosystème du livre.</p>
-                        <p style="font-size: 12px; margin-bottom: 0;">Qui sont les acteurs éditoriaux français, leurs histoires, leurs stratégies. Comprendre un secteur avant d'y travailler.</p>
+                    <!-- Bloc 1 : MLP -->
+                    <div class="mlp-mmi-block mlp">
+                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">MLP m'a appris à avoir un regard critique sur l'écosystème du livre.</p>
+                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Qui sont les acteurs éditoriaux français, leurs histoires, leurs stratégies. Comprendre un secteur avant d'y travailler.</p>
                     </div>
                     
-                    <!-- Bloc 2 : MMI à droite -->
-                    <div style="width: 70%; margin-left: auto; margin-bottom: 25px;">
-                        <p style="font-weight: 600; margin-bottom: 8px;">Je veux développer ce même regard sur l'écosystème numérique.</p>
-                        <p style="font-size: 12px; margin-bottom: 0;">Qui fait quoi dans la chaîne de production web ? Quels sont les enjeux techniques, économiques, éthiques ? Comprendre le numérique de l'intérieur.</p>
+                    <!-- Bloc 2 : MMI -->
+                    <div class="mlp-mmi-block mmi">
+                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">Je veux développer ce même regard sur l'écosystème numérique.</p>
+                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Qui fait quoi dans la chaîne de production web ? Quels sont les enjeux techniques, économiques, éthiques ? Comprendre le numérique de l'intérieur.</p>
                     </div>
                     
-                    <!-- Bloc 3 : MLP à gauche -->
-                    <div style="width: 60%; margin-bottom: 25px;">
-                        <p style="font-weight: 600; margin-bottom: 8px;">MLP m'a appris à travailler en équipe sur des projets éditoriaux.</p>
-                        <p style="font-size: 12px; margin-bottom: 0;">Chaque métier du livre collabore : éditeur, graphiste, commercial, diffuseur.</p>
+                    <!-- Bloc 3 : MLP -->
+                    <div class="mlp-mmi-block mlp">
+                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">MLP m'a appris à travailler en équipe sur des projets éditoriaux.</p>
+                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Chaque métier du livre collabore : éditeur, graphiste, commercial, diffuseur.</p>
                     </div>
                     
-                    <!-- Bloc 4 : MMI à droite -->
-                    <div style="width: 70%; margin-left: auto; margin-bottom: 25px;">
-                        <p style="font-weight: 600; margin-bottom: 8px;">Je veux apprendre à collaborer dans des projets numériques.</p>
-                        <p style="font-size: 12px; margin-bottom: 0;">Designer, développeur, chef de projet, client. Les métiers du web sont encore plus interdépendants.</p>
+                    <!-- Bloc 4 : MMI -->
+                    <div class="mlp-mmi-block mmi">
+                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">Je veux apprendre à collaborer dans des projets numériques.</p>
+                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Designer, développeur, chef de projet, client. Les métiers du web sont encore plus interdépendants.</p>
                     </div>
                     
-                    <!-- Bloc 5 : MLP à gauche -->
-                    <div style="width: 60%; margin-bottom: 25px;">
-                        <p style="font-weight: 600; margin-bottom: 8px;">MLP m'a appris à structurer l'information.</p>
-                        <p style="font-size: 12px; margin-bottom: 0;">Organiser des contenus, hiérarchiser, créer des parcours de lecture.</p>
+                    <!-- Bloc 5 : MLP -->
+                    <div class="mlp-mmi-block mlp">
+                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">MLP m'a appris à structurer l'information.</p>
+                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Organiser des contenus, hiérarchiser, créer des parcours de lecture.</p>
                     </div>
                     
-                    <!-- Bloc 6 : MMI à droite -->
-                    <div style="width: 70%; margin-left: auto;">
-                        <p style="font-weight: 600; margin-bottom: 8px;">Je veux apprendre à la rendre interactive.</p>
-                        <p style="font-size: 12px; margin-bottom: 0;">Comment transformer une structure éditoriale en interface ? Comment penser l'UX comme on pense la mise en page ?</p>
+                    <!-- Bloc 6 : MMI -->
+                    <div class="mlp-mmi-block mmi">
+                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">Je veux apprendre à la rendre interactive.</p>
+                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Comment transformer une structure éditoriale en interface ? Comment penser l'UX comme on pense la mise en page ?</p>
                     </div>
                 </div>
             </div>
