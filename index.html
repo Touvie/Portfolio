@@ -365,7 +365,9 @@
             bottom: 140px;
             left: 60px;
             top: auto;
-            right: auto;
+            right: 60px;
+            width: auto;
+            max-width: none;
         }
 
         .apropos-main-title[data-position="top-left"] {
@@ -1018,8 +1020,41 @@
                     <p>En octobre, j'ai développé une méthode collaborative avec l'IA. Je dirige les projets, je conçois l'architecture, je teste et j'ajuste. Cette approche m'a permis de créer ce portfolio.</p>
                 </div>
                 <div class="about-page" data-page="3">
-                    <p>La situation finale n'existe pas encore. Ce portfolio marque une étape de ce que j'ai exploré jusqu'ici.</p>
-                    <p>MMI représente l'opportunité d'acquérir la maîtrise complète des outils de développement web, pour transformer ma capacité à concevoir en capacité à réaliser de bout en bout.</p>
+                    <!-- Bloc 1 : MLP à gauche -->
+                    <div style="width: 60%; margin-bottom: 25px;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">MLP m'a appris à avoir un regard critique sur l'écosystème du livre.</p>
+                        <p style="font-size: 12px; margin-bottom: 0;">Qui sont les acteurs éditoriaux français, leurs histoires, leurs stratégies. Comprendre un secteur avant d'y travailler.</p>
+                    </div>
+                    
+                    <!-- Bloc 2 : MMI à droite -->
+                    <div style="width: 70%; margin-left: auto; margin-bottom: 25px;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">Je veux développer ce même regard sur l'écosystème numérique.</p>
+                        <p style="font-size: 12px; margin-bottom: 0;">Qui fait quoi dans la chaîne de production web ? Quels sont les enjeux techniques, économiques, éthiques ? Comprendre le numérique de l'intérieur.</p>
+                    </div>
+                    
+                    <!-- Bloc 3 : MLP à gauche -->
+                    <div style="width: 60%; margin-bottom: 25px;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">MLP m'a appris à travailler en équipe sur des projets éditoriaux.</p>
+                        <p style="font-size: 12px; margin-bottom: 0;">Chaque métier du livre collabore : éditeur, graphiste, commercial, diffuseur.</p>
+                    </div>
+                    
+                    <!-- Bloc 4 : MMI à droite -->
+                    <div style="width: 70%; margin-left: auto; margin-bottom: 25px;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">Je veux apprendre à collaborer dans des projets numériques.</p>
+                        <p style="font-size: 12px; margin-bottom: 0;">Designer, développeur, chef de projet, client. Les métiers du web sont encore plus interdépendants.</p>
+                    </div>
+                    
+                    <!-- Bloc 5 : MLP à gauche -->
+                    <div style="width: 60%; margin-bottom: 25px;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">MLP m'a appris à structurer l'information.</p>
+                        <p style="font-size: 12px; margin-bottom: 0;">Organiser des contenus, hiérarchiser, créer des parcours de lecture.</p>
+                    </div>
+                    
+                    <!-- Bloc 6 : MMI à droite -->
+                    <div style="width: 70%; margin-left: auto;">
+                        <p style="font-weight: 600; margin-bottom: 8px;">Je veux apprendre à la rendre interactive.</p>
+                        <p style="font-size: 12px; margin-bottom: 0;">Comment transformer une structure éditoriale en interface ? Comment penser l'UX comme on pense la mise en page ?</p>
+                    </div>
                 </div>
             </div>
             
@@ -1315,7 +1350,7 @@
         let isAnimating = false;
         let currentAboutPage = 0;
 
-        const pageTitles = ['Qui suis-je ?', 'Élément déclencheur', 'Péripéties', 'Et maintenant ?'];
+        const pageTitles = ['Qui suis-je ?', 'Élément déclencheur', 'Péripéties', 'MLP ↔ MMI'];
         const pagePositions = ['top-left', 'bottom-right', 'top-right', 'bottom-left'];
 
         // Fonction pour wrapper les lettres
