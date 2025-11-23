@@ -368,24 +368,74 @@
             right: 60px;
             width: auto;
             max-width: none;
-            overflow-y: auto;
         }
 
         .mlp-mmi-block {
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 6px;
-            padding: 15px 20px;
-            margin-bottom: 15px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            position: relative;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .mlp-mmi-block:hover {
+            border-color: rgba(191, 161, 129, 0.3);
         }
 
         .mlp-mmi-block.mlp {
             width: 55%;
+            background: linear-gradient(to top right, rgba(76, 175, 80, 0.08), transparent);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .mlp-mmi-block.mlp:hover {
+            background: linear-gradient(to top right, rgba(76, 175, 80, 0.15), transparent);
         }
 
         .mlp-mmi-block.mmi {
             width: 65%;
             margin-left: auto;
+            background: linear-gradient(to top left, rgba(156, 39, 176, 0.08), transparent);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .mlp-mmi-block.mmi:hover {
+            background: linear-gradient(to top left, rgba(156, 39, 176, 0.15), transparent);
+        }
+
+        .block-title {
+            font-weight: 600;
+            font-size: 13px;
+            line-height: 1.5;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .block-content {
+            font-size: 12px;
+            line-height: 1.7;
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 25px;
+            right: 25px;
+            transform: translateY(-50%);
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .mlp-mmi-block:hover .block-title {
+            opacity: 0;
+        }
+
+        .mlp-mmi-block:hover .block-content {
+            opacity: 1;
         }
 
         .apropos-main-title[data-position="top-left"] {
@@ -1040,38 +1090,26 @@
                 <div class="about-page" data-page="3">
                     <!-- Bloc 1 : MLP -->
                     <div class="mlp-mmi-block mlp">
-                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">MLP m'a appris à avoir un regard critique sur l'écosystème du livre.</p>
-                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Qui sont les acteurs éditoriaux français, leurs histoires, leurs stratégies. Comprendre un secteur avant d'y travailler.</p>
+                        <div class="block-title">MLP m'a appris à avoir un regard critique sur l'écosystème du livre.</div>
+                        <div class="block-content">Qui sont les acteurs éditoriaux français, leurs histoires, leurs stratégies. Comprendre un secteur avant d'y travailler.</div>
                     </div>
                     
                     <!-- Bloc 2 : MMI -->
                     <div class="mlp-mmi-block mmi">
-                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">Je veux développer ce même regard sur l'écosystème numérique.</p>
-                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Qui fait quoi dans la chaîne de production web ? Quels sont les enjeux techniques, économiques, éthiques ? Comprendre le numérique de l'intérieur.</p>
+                        <div class="block-title">Je veux développer ce même regard sur l'écosystème numérique.</div>
+                        <div class="block-content">Qui fait quoi dans la chaîne de production web ? Quels sont les enjeux techniques, économiques, éthiques ? Comprendre le numérique de l'intérieur.</div>
                     </div>
                     
                     <!-- Bloc 3 : MLP -->
                     <div class="mlp-mmi-block mlp">
-                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">MLP m'a appris à travailler en équipe sur des projets éditoriaux.</p>
-                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Chaque métier du livre collabore : éditeur, graphiste, commercial, diffuseur.</p>
+                        <div class="block-title">MLP m'a appris à structurer l'information.</div>
+                        <div class="block-content">Organiser des contenus, hiérarchiser, créer des parcours de lecture. Le livre est une architecture.</div>
                     </div>
                     
                     <!-- Bloc 4 : MMI -->
                     <div class="mlp-mmi-block mmi">
-                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">Je veux apprendre à collaborer dans des projets numériques.</p>
-                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Designer, développeur, chef de projet, client. Les métiers du web sont encore plus interdépendants.</p>
-                    </div>
-                    
-                    <!-- Bloc 5 : MLP -->
-                    <div class="mlp-mmi-block mlp">
-                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">MLP m'a appris à structurer l'information.</p>
-                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Organiser des contenus, hiérarchiser, créer des parcours de lecture.</p>
-                    </div>
-                    
-                    <!-- Bloc 6 : MMI -->
-                    <div class="mlp-mmi-block mmi">
-                        <p style="font-weight: 600; margin-bottom: 6px; font-size: 12px;">Je veux apprendre à la rendre interactive.</p>
-                        <p style="font-size: 11px; margin-bottom: 0; line-height: 1.6;">Comment transformer une structure éditoriale en interface ? Comment penser l'UX comme on pense la mise en page ?</p>
+                        <div class="block-title">Je veux apprendre à la rendre interactive.</div>
+                        <div class="block-content">Comment transformer une structure éditoriale en interface ? Comment penser l'UX comme on pense la mise en page ?</div>
                     </div>
                 </div>
             </div>
