@@ -1233,15 +1233,15 @@
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 60%"></div></div>
                 </div>
 
-                <!-- GitHub (1x1) - ESPACÉ -->
-                <div class="skill-block logo-block" style="grid-column: 2 / 3; grid-row: 3 / 4;">
+                <!-- GitHub (1x1) - BORD GAUCHE -->
+                <div class="skill-block logo-block" style="grid-column: 1 / 2; grid-row: 3 / 4;">
                     <div class="logo-icon"><img src="Images/Github.png" alt="GitHub"></div>
                     <div class="logo-name">GitHub</div>
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 40%"></div></div>
                 </div>
 
-                <!-- Scratch (1x1) - ESPACÉ -->
-                <div class="skill-block logo-block" style="grid-column: 2 / 3; grid-row: 4 / 5;">
+                <!-- Scratch (1x1) - BORD GAUCHE -->
+                <div class="skill-block logo-block" style="grid-column: 1 / 2; grid-row: 4 / 5;">
                     <div class="logo-icon"><img src="Images/Scratch.png" alt="Scratch"></div>
                     <div class="logo-name">Scratch</div>
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
@@ -1279,7 +1279,7 @@
                 </div>
 
                 <!-- ERROR 418 (1x1) - NOUVEAU -->
-                <div class="skill-block accent-block" style="grid-column: 5 / 6; grid-row: 2 / 3;">
+                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 5 / 6; grid-row: 2 / 3;">
                     <div class="accent-text" style="font-size: 18px;">☕</div>
                     <div class="accent-label" style="font-size: 9px;">ERROR 418</div>
                 </div>
@@ -1323,8 +1323,8 @@
                 </div>
 
                 <!-- ===== ZONE VIDÉO/3D (Rangée 3-4) ===== -->
-                <!-- Vidéo & Montage (3x2) -->
-                <div class="skill-block" style="grid-column: 1 / 4; grid-row: 3 / 5;">
+                <!-- Vidéo & Montage (2x2) - RÉDUIT -->
+                <div class="skill-block" style="grid-column: 2 / 4; grid-row: 3 / 5;">
                     <h3>Vidéo & Montage</h3>
                     <div class="skill-item">
                         <div class="skill-name">Montage vidéo</div>
@@ -1379,20 +1379,20 @@
                 </div>
 
                 <!-- Python (mention) (1x1) -->
-                <div class="skill-block accent-block" style="grid-column: 10 / 11; grid-row: 3 / 4;">
+                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 10 / 11; grid-row: 3 / 4;">
                     <div class="accent-text" style="font-size: 16px;">🐍</div>
                     <div class="accent-label">Python</div>
                 </div>
 
                 <!-- 2024 Début (1x1) -->
-                <div class="skill-block accent-block" style="grid-column: 10 / 11; grid-row: 4 / 5;">
+                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 10 / 11; grid-row: 4 / 5;">
                     <div class="accent-text" style="font-size: 14px;">2024</div>
                     <div class="accent-label">Début Web</div>
                 </div>
 
                 <!-- ===== RANGÉE BAS (Rangée 5-6) ===== -->
                 <!-- 6+ Projets (1x2) -->
-                <div class="skill-block accent-block" style="grid-column: 1 / 2; grid-row: 5 / 7;">
+                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 1 / 2; grid-row: 5 / 7;">
                     <div class="accent-text" style="font-size: 28px;">6+</div>
                     <div class="accent-label">Projets</div>
                 </div>
@@ -1438,7 +1438,7 @@
                 </div>
 
                 <!-- Portfolio (1x2) -->
-                <div class="skill-block accent-block" style="grid-column: 10 / 11; grid-row: 5 / 7;">
+                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 10 / 11; grid-row: 5 / 7;">
                     <div class="accent-text" style="font-size: 20px;">🎨</div>
                     <div class="accent-label">Ce site !</div>
                 </div>
@@ -1519,7 +1519,7 @@
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0x0a0a0f, 1);
-            renderer.autoClear = false; // Désactiver auto-clear pour contrôler manuellement
+            // autoClear = true (défaut) : chaque render() clear automatiquement
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
             // Trou noir placeholder
@@ -1936,12 +1936,6 @@
 
         // Fonction de rendu pour les scènes À propos
         function renderAproposScenes() {
-            if (currentSection !== 1) {
-                // Important : s'assurer que le scissor test est désactivé si on n'est pas sur À propos
-                renderer.setScissorTest(false);
-                return;
-            }
-
             const canvasRect = aproposCanvas.getBoundingClientRect();
             renderer.setScissorTest(true);
 
@@ -1976,21 +1970,19 @@
         animate = function() {
             requestAnimationFrame(animate);
 
-            // IMPORTANT : Désactiver le scissor test AVANT de clear pour éviter que l'état
-            // de la frame précédente n'affecte le clear
-            renderer.setScissorTest(false);
-
-            // Effacer manuellement le canvas au début de chaque frame
-            renderer.clear();
-
             camera.position.z += (targetCameraZ - camera.position.z) * 0.05;
             document.getElementById('debug').textContent = `Section: ${currentSection} | Z: ${camera.position.z.toFixed(0)}`;
 
-            // Rendre la scène principale
+            // Rendre la scène principale (avec autoClear = true, ça clear automatiquement)
             renderer.render(scene, camera);
 
-            // Rendre les scènes À propos si on est sur cette section (par-dessus)
-            renderAproposScenes();
+            // Rendre les scènes À propos PAR-DESSUS si on est sur cette section
+            if (currentSection === 1) {
+                // Désactiver autoClear temporairement pour rendre par-dessus la scène principale
+                renderer.autoClear = false;
+                renderAproposScenes();
+                renderer.autoClear = true;
+            }
         }
 
         // Relancer l'animation avec la nouvelle fonction
