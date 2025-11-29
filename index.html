@@ -1233,11 +1233,18 @@
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 60%"></div></div>
                 </div>
 
-                <!-- GitHub (1x1) -->
-                <div class="skill-block logo-block" style="grid-column: 4 / 5; grid-row: 2 / 3;">
+                <!-- GitHub (1x1) - ESPACÉ -->
+                <div class="skill-block logo-block" style="grid-column: 2 / 3; grid-row: 3 / 4;">
                     <div class="logo-icon"><img src="Images/Github.png" alt="GitHub"></div>
                     <div class="logo-name">GitHub</div>
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 40%"></div></div>
+                </div>
+
+                <!-- Scratch (1x1) - ESPACÉ -->
+                <div class="skill-block logo-block" style="grid-column: 2 / 3; grid-row: 4 / 5;">
+                    <div class="logo-icon"><img src="Images/Scratch.png" alt="Scratch"></div>
+                    <div class="logo-name">Scratch</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
                 </div>
 
                 <!-- ===== ZONE IA & OUTILS (Rangée 1-2) ===== -->
@@ -1248,27 +1255,33 @@
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 70%"></div></div>
                 </div>
 
-                <!-- IA Prompt Engineering (2x1) -->
-                <div class="skill-block" style="grid-column: 6 / 8; grid-row: 1 / 2;">
-                    <h3>IA & Prompt</h3>
+                <!-- Gemini (1x1) - NOUVEAU -->
+                <div class="skill-block logo-block" style="grid-column: 7 / 8; grid-row: 1 / 2;">
+                    <div class="logo-icon"><img src="Images/Gemini.png" alt="Gemini AI"></div>
+                    <div class="logo-name">Gemini</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 60%"></div></div>
+                </div>
+
+                <!-- IA Prompt Engineering (1x1) - RÉDUIT -->
+                <div class="skill-block" style="grid-column: 6 / 7; grid-row: 1 / 2;">
+                    <h3 style="font-size: 12px; margin-bottom: 8px;">IA Prompt</h3>
                     <div class="skill-item">
-                        <div class="skill-name">Vibe Coding</div>
+                        <div class="skill-name" style="font-size: 10px;">Vibe Coding</div>
                         <div class="skill-bar"><div class="skill-progress" style="--skill-level: 65%"></div></div>
                     </div>
                 </div>
 
-                <!-- Obsidian (1x1) -->
-                <div class="skill-block logo-block" style="grid-column: 5 / 6; grid-row: 2 / 3;">
+                <!-- Obsidian (1x1) - ESPACE -->
+                <div class="skill-block logo-block" style="grid-column: 6 / 7; grid-row: 2 / 3;">
                     <div class="logo-icon"><img src="Images/Obsidian.png" alt="Obsidian"></div>
                     <div class="logo-name">Obsidian</div>
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
                 </div>
 
-                <!-- Scratch (1x1) -->
-                <div class="skill-block logo-block" style="grid-column: 6 / 7; grid-row: 2 / 3;">
-                    <div class="logo-icon"><img src="Images/Scratch.png" alt="Scratch"></div>
-                    <div class="logo-name">Scratch</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
+                <!-- ERROR 418 (1x1) - NOUVEAU -->
+                <div class="skill-block accent-block" style="grid-column: 5 / 6; grid-row: 2 / 3;">
+                    <div class="accent-text" style="font-size: 18px;">☕</div>
+                    <div class="accent-label" style="font-size: 9px;">ERROR 418</div>
                 </div>
 
                 <!-- Culture Numérique (1x1) -->
@@ -1417,6 +1430,10 @@
                     <div class="skill-item">
                         <div class="skill-name">Anglais technique</div>
                         <div class="skill-bar"><div class="skill-progress" style="--skill-level: 70%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Russe (pour l'espionnage 🕵️)</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 5%"></div></div>
                     </div>
                 </div>
 
@@ -1958,6 +1975,10 @@
         const originalAnimate = animate;
         animate = function() {
             requestAnimationFrame(animate);
+
+            // IMPORTANT : Désactiver le scissor test AVANT de clear pour éviter que l'état
+            // de la frame précédente n'affecte le clear
+            renderer.setScissorTest(false);
 
             // Effacer manuellement le canvas au début de chaque frame
             renderer.clear();
