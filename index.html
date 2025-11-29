@@ -684,8 +684,8 @@
             right: 60px;
             bottom: 60px;
             display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            grid-template-rows: repeat(5, 1fr);
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(6, 1fr);
             gap: 8px;
         }
 
@@ -811,18 +811,17 @@
             width: var(--logo-level);
         }
 
-        /* Tailles des logos */
-        .logo-xl .logo-icon { width: 45px; height: 45px; font-size: 11px; }
-        .logo-xl .logo-name { font-size: 7px; }
+        /* Taille unique pour tous les logos (tous en 1x1) */
+        .logo-block .logo-icon {
+            width: 65px;
+            height: 65px;
+            font-size: 12px;
+        }
 
-        .logo-lg .logo-icon { width: 35px; height: 35px; font-size: 10px; }
-        .logo-lg .logo-name { font-size: 7px; }
-
-        .logo-md .logo-icon { width: 28px; height: 28px; font-size: 9px; }
-        .logo-md .logo-name { font-size: 6px; }
-
-        .logo-sm .logo-icon { width: 20px; height: 20px; font-size: 7px; }
-        .logo-sm .logo-name { font-size: 5px; }
+        .logo-block .logo-name {
+            font-size: 8px;
+            margin-top: 8px;
+        }
 
         /* ========== CONTACT (05) ========== */
         .contact-title {
@@ -1209,10 +1208,10 @@
             <div class="competences-title">Compétences</div>
             
             <div class="competences-bento">
-                <!-- Row 1 -->
-                <!-- Développement (3x2) -->
+                <!-- ===== ZONE DÉVELOPPEMENT (Rangée 1-2) ===== -->
+                <!-- Développement Web (3x2) -->
                 <div class="skill-block" style="grid-column: 1 / 4; grid-row: 1 / 3;">
-                    <h3>Développement</h3>
+                    <h3>Développement Web</h3>
                     <div class="skill-item">
                         <div class="skill-name">HTML / CSS</div>
                         <div class="skill-bar"><div class="skill-progress" style="--skill-level: 75%"></div></div>
@@ -1226,16 +1225,61 @@
                         <div class="skill-bar"><div class="skill-progress" style="--skill-level: 40%"></div></div>
                     </div>
                 </div>
-                
-                <!-- Obsidian (2x2) - 4/5 -->
-                <div class="skill-block logo-block logo-xl" style="grid-column: 4 / 6; grid-row: 1 / 3;">
+
+                <!-- VS Code (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 4 / 5; grid-row: 1 / 2;">
+                    <div class="logo-icon"><img src="Images/Vscode.png" alt="VS Code"></div>
+                    <div class="logo-name">VS Code</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 60%"></div></div>
+                </div>
+
+                <!-- GitHub (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 4 / 5; grid-row: 2 / 3;">
+                    <div class="logo-icon"><img src="Images/Github.png" alt="GitHub"></div>
+                    <div class="logo-name">GitHub</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 40%"></div></div>
+                </div>
+
+                <!-- ===== ZONE IA & OUTILS (Rangée 1-2) ===== -->
+                <!-- Claude (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 5 / 6; grid-row: 1 / 2;">
+                    <div class="logo-icon"><img src="Images/Claude.png" alt="Claude AI"></div>
+                    <div class="logo-name">Claude AI</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 70%"></div></div>
+                </div>
+
+                <!-- IA Prompt Engineering (2x1) -->
+                <div class="skill-block" style="grid-column: 6 / 8; grid-row: 1 / 2;">
+                    <h3>IA & Prompt</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Vibe Coding</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 65%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Obsidian (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 5 / 6; grid-row: 2 / 3;">
                     <div class="logo-icon"><img src="Images/Obsidian.png" alt="Obsidian"></div>
                     <div class="logo-name">Obsidian</div>
                     <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
                 </div>
-                
-                <!-- Design (2x1) -->
-                <div class="skill-block" style="grid-column: 6 / 8; grid-row: 1 / 2;">
+
+                <!-- Scratch (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 6 / 7; grid-row: 2 / 3;">
+                    <div class="logo-icon"><img src="Images/Scratch.png" alt="Scratch"></div>
+                    <div class="logo-name">Scratch</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
+                </div>
+
+                <!-- Culture Numérique (1x1) -->
+                <div class="skill-block accent-block" style="grid-column: 7 / 8; grid-row: 2 / 3;">
+                    <div class="accent-text" style="font-size: 10px;">Culture</div>
+                    <div class="accent-label">Numérique</div>
+                </div>
+
+                <!-- ===== ZONE DESIGN (Rangée 1-2 droite) ===== -->
+                <!-- Design (2x2) -->
+                <div class="skill-block" style="grid-column: 8 / 10; grid-row: 1 / 3;">
                     <h3>Design</h3>
                     <div class="skill-item">
                         <div class="skill-name">UI/UX</div>
@@ -1245,103 +1289,141 @@
                         <div class="skill-name">Typographie</div>
                         <div class="skill-bar"><div class="skill-progress" style="--skill-level: 70%"></div></div>
                     </div>
-                </div>
-                
-                <!-- Blender (1x1) - 1/5 -->
-                <div class="skill-block logo-block logo-sm" style="grid-column: 8 / 9; grid-row: 1 / 2;">
-                    <div class="logo-icon"><img src="Images/Blender.png" alt="Blender"></div>
-                    <div class="logo-name">Blender</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 20%"></div></div>
-                </div>
-                
-                <!-- Row 2 -->
-                <!-- Claude (2x2) - 3.5/5 -->
-                <div class="skill-block logo-block logo-lg" style="grid-column: 6 / 8; grid-row: 2 / 4;">
-                    <div class="logo-icon"><img src="Images/Claude.png" alt="Claude"></div>
-                    <div class="logo-name">Claude</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 70%"></div></div>
-                </div>
-                
-                <!-- GitHub (1x1) - 2/5 -->
-                <div class="skill-block logo-block logo-sm" style="grid-column: 8 / 9; grid-row: 2 / 3;">
-                    <div class="logo-icon"><img src="Images/Github.png" alt="GitHub"></div>
-                    <div class="logo-name">GitHub</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 40%"></div></div>
-                </div>
-                
-                <!-- Row 3 -->
-                <!-- MLP (2x2) -->
-                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 1 / 3; grid-row: 3 / 5;">
-                    <div class="accent-text" style="font-size: 20px;">MLP</div>
-                    <div class="accent-label">Métiers du Livre</div>
-                </div>
-                
-                <!-- Scratch (2x2) - 4/5 -->
-                <div class="skill-block logo-block logo-xl" style="grid-column: 3 / 5; grid-row: 3 / 5;">
-                    <div class="logo-icon"><img src="Images/Scratch.png" alt="Scratch"></div>
-                    <div class="logo-name">Scratch</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
-                </div>
-                
-                <!-- Figma (1x1) - 3/5 -->
-                <div class="skill-block logo-block logo-sm" style="grid-column: 5 / 6; grid-row: 3 / 4;">
-                    <div class="logo-icon"><img src="Images/Figma.png" alt="Figma"></div>
-                    <div class="logo-name">Figma</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 60%"></div></div>
-                </div>
-                
-                <!-- CapCut (1x1) - 2/5 -->
-                <div class="skill-block logo-block logo-sm" style="grid-column: 8 / 9; grid-row: 3 / 4;">
-                    <div class="logo-icon"><img src="Images/Capcut.png" alt="CapCut"></div>
-                    <div class="logo-name">CapCut</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 40%"></div></div>
-                </div>
-                
-                <!-- Row 4 -->
-                <!-- VS Code (2x1) - 3/5 -->
-                <div class="skill-block logo-block logo-md" style="grid-column: 5 / 7; grid-row: 4 / 5;">
-                    <div class="logo-icon"><img src="Images/Vscode.png" alt="VS Code"></div>
-                    <div class="logo-name">VS Code</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 60%"></div></div>
-                </div>
-                
-                <!-- MMI (2x2) -->
-                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 7 / 9; grid-row: 4 / 6;">
-                    <div class="accent-text" style="font-size: 22px;">MMI</div>
-                    <div class="accent-label">Objectif 2025</div>
-                </div>
-                
-                <!-- Row 5 -->
-                <!-- 6+ -->
-                <div class="skill-block accent-block" style="grid-column: 1 / 2; grid-row: 5 / 6;">
-                    <div class="accent-text" style="font-size: 18px;">6+</div>
-                    <div class="accent-label">Projets</div>
-                </div>
-                
-                <!-- Canva (2x1) - 4/5 -->
-                <div class="skill-block logo-block logo-lg" style="grid-column: 2 / 4; grid-row: 5 / 6;">
-                    <div class="logo-icon"><img src="Images/Canva.png" alt="Canva"></div>
-                    <div class="logo-name">Canva</div>
-                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
-                </div>
-                
-                <!-- 2024 -->
-                <div class="skill-block accent-block" style="grid-column: 4 / 5; grid-row: 5 / 6;">
-                    <div class="accent-text" style="font-size: 14px;">2024</div>
-                    <div class="accent-label">Début</div>
-                </div>
-                
-                <!-- Métiers du Livre (2x1) -->
-                <div class="skill-block" style="grid-column: 5 / 7; grid-row: 5 / 6;">
-                    <h3>Édition</h3>
                     <div class="skill-item">
                         <div class="skill-name">Mise en page</div>
                         <div class="skill-bar"><div class="skill-progress" style="--skill-level: 75%"></div></div>
                     </div>
+                </div>
+
+                <!-- Figma (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 10 / 11; grid-row: 1 / 2;">
+                    <div class="logo-icon"><img src="Images/Figma.png" alt="Figma"></div>
+                    <div class="logo-name">Figma</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 60%"></div></div>
+                </div>
+
+                <!-- Canva (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 10 / 11; grid-row: 2 / 3;">
+                    <div class="logo-icon"><img src="Images/Canva.png" alt="Canva"></div>
+                    <div class="logo-name">Canva</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 80%"></div></div>
+                </div>
+
+                <!-- ===== ZONE VIDÉO/3D (Rangée 3-4) ===== -->
+                <!-- Vidéo & Montage (3x2) -->
+                <div class="skill-block" style="grid-column: 1 / 4; grid-row: 3 / 5;">
+                    <h3>Vidéo & Montage</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Montage vidéo</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 50%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Stop Motion</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 40%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Scénarisation</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 60%"></div></div>
+                    </div>
+                </div>
+
+                <!-- CapCut (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 4 / 5; grid-row: 3 / 4;">
+                    <div class="logo-icon"><img src="Images/Capcut.png" alt="CapCut"></div>
+                    <div class="logo-name">CapCut</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 50%"></div></div>
+                </div>
+
+                <!-- Blender (1x1) -->
+                <div class="skill-block logo-block" style="grid-column: 4 / 5; grid-row: 4 / 5;">
+                    <div class="logo-icon"><img src="Images/Blender.png" alt="Blender"></div>
+                    <div class="logo-name">Blender</div>
+                    <div class="logo-bar"><div class="logo-progress" style="--logo-level: 20%"></div></div>
+                </div>
+
+                <!-- ===== ZONE ÉDITION (Rangée 3-4 centre) ===== -->
+                <!-- MLP Accent (2x2) -->
+                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 5 / 7; grid-row: 3 / 5;">
+                    <div class="accent-text" style="font-size: 24px;">MLP</div>
+                    <div class="accent-label">Métiers du Livre</div>
+                </div>
+
+                <!-- Édition (3x2) -->
+                <div class="skill-block" style="grid-column: 7 / 10; grid-row: 3 / 5;">
+                    <h3>Édition & Rédaction</h3>
                     <div class="skill-item">
                         <div class="skill-name">Rédaction</div>
                         <div class="skill-bar"><div class="skill-progress" style="--skill-level: 85%"></div></div>
                     </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Structure info</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Analyse critique</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 75%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Python (mention) (1x1) -->
+                <div class="skill-block accent-block" style="grid-column: 10 / 11; grid-row: 3 / 4;">
+                    <div class="accent-text" style="font-size: 16px;">🐍</div>
+                    <div class="accent-label">Python</div>
+                </div>
+
+                <!-- 2024 Début (1x1) -->
+                <div class="skill-block accent-block" style="grid-column: 10 / 11; grid-row: 4 / 5;">
+                    <div class="accent-text" style="font-size: 14px;">2024</div>
+                    <div class="accent-label">Début Web</div>
+                </div>
+
+                <!-- ===== RANGÉE BAS (Rangée 5-6) ===== -->
+                <!-- 6+ Projets (1x2) -->
+                <div class="skill-block accent-block" style="grid-column: 1 / 2; grid-row: 5 / 7;">
+                    <div class="accent-text" style="font-size: 28px;">6+</div>
+                    <div class="accent-label">Projets</div>
+                </div>
+
+                <!-- Soft Skills (4x2) -->
+                <div class="skill-block" style="grid-column: 2 / 6; grid-row: 5 / 7;">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Curiosité & Auto-apprentissage</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Communication claire</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Organisation & Structure</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 85%"></div></div>
+                    </div>
+                </div>
+
+                <!-- MMI Objectif (2x2) -->
+                <div class="skill-block accent-block accent-block-highlight" style="grid-column: 6 / 8; grid-row: 5 / 7;">
+                    <div class="accent-text" style="font-size: 26px;">MMI</div>
+                    <div class="accent-label">Objectif 2025</div>
+                </div>
+
+                <!-- Langues (2x2) -->
+                <div class="skill-block" style="grid-column: 8 / 10; grid-row: 5 / 7;">
+                    <h3>Langues</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Français (natif)</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 100%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Anglais technique</div>
+                        <div class="skill-bar"><div class="skill-progress" style="--skill-level: 70%"></div></div>
+                    </div>
+                </div>
+
+                <!-- Portfolio (1x2) -->
+                <div class="skill-block accent-block" style="grid-column: 10 / 11; grid-row: 5 / 7;">
+                    <div class="accent-text" style="font-size: 20px;">🎨</div>
+                    <div class="accent-label">Ce site !</div>
                 </div>
             </div>
             
@@ -1837,10 +1919,14 @@
 
         // Fonction de rendu pour les scènes À propos
         function renderAproposScenes() {
-            if (currentSection !== 1) return; // Ne rendre que si on est sur la section À propos
+            if (currentSection !== 1) {
+                // Important : s'assurer que le scissor test est désactivé si on n'est pas sur À propos
+                renderer.setScissorTest(false);
+                return;
+            }
 
             const canvasRect = aproposCanvas.getBoundingClientRect();
-            aproposRenderer.setScissorTest(true);
+            renderer.setScissorTest(true);
 
             aproposScenesData.forEach((data) => {
                 const rect = data.container.getBoundingClientRect();
@@ -1858,14 +1944,14 @@
                 const left = rect.left;
                 const bottom = canvasRect.height - rect.bottom;
 
-                aproposRenderer.setViewport(left, bottom, width, height);
-                aproposRenderer.setScissor(left, bottom, width, height);
+                renderer.setViewport(left, bottom, width, height);
+                renderer.setScissor(left, bottom, width, height);
                 data.camera.aspect = width / height;
                 data.camera.updateProjectionMatrix();
-                aproposRenderer.render(data.scene, data.camera);
+                renderer.render(data.scene, data.camera);
             });
 
-            aproposRenderer.setScissorTest(false);
+            renderer.setScissorTest(false);
         }
 
         // Modifier la boucle d'animation existante pour inclure les scènes À propos
