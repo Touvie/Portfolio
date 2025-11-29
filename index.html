@@ -6,6 +6,16 @@
     <title>Portfolio 3D Navigation</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Variables CSS */
+        :root {
+            --accent: #BFA181;
+            --bg-dark: #0a0a0f;
+            --text-light: rgba(255, 255, 255, 0.85);
+            --text-muted: rgba(255, 255, 255, 0.6);
+            --glass-bg: rgba(15, 15, 20, 0.8);
+            --glass-border: rgba(191, 161, 129, 0.15);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -279,7 +289,222 @@
             letter-spacing: 2px;
         }
 
-        /* ========== À PROPOS (02) - Nettoyé ========== */
+        /* ========== À PROPOS (02) ========== */
+
+        /* Scrollbar personnalisée pour la section À propos */
+        .apropos-wrapper::-webkit-scrollbar { width: 5px; }
+        .apropos-wrapper::-webkit-scrollbar-track { background: rgba(255,255,255,0.02); }
+        .apropos-wrapper::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        /* Conteneur principal de la section À propos */
+        .apropos-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Layout principal */
+        .apropos-content-wrapper {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 180px 40px 300px 40px;
+        }
+
+        .apropos-content-row {
+            display: flex;
+            align-items: stretch;
+            margin-bottom: 200px;
+            position: relative;
+        }
+
+        /* Bloc texte avec effet glassmorphism */
+        .apropos-text-block {
+            flex: 0 0 65%;
+            padding: 60px 50px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+
+            box-shadow:
+                0 15px 35px -10px rgba(0,0,0,0.4),
+                0 35px 70px -20px rgba(191, 161, 129, 0.05);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+        }
+
+        .apropos-text-block:hover {
+            transform: translateY(-5px);
+            box-shadow:
+                0 20px 40px -10px rgba(0,0,0,0.5),
+                0 45px 80px -20px rgba(191, 161, 129, 0.1);
+            border-color: rgba(191, 161, 129, 0.3);
+        }
+
+        /* Container pour les visualisations 3D */
+        .apropos-visual-container {
+            flex: 0 0 35%;
+            height: auto;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(191, 161, 129, 0.02) 0%, transparent 60%);
+        }
+
+        /* Typographie */
+        .apropos-text-block h2 {
+            color: var(--accent);
+            font-family: 'Space Mono';
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 35px;
+            font-size: 1.25rem;
+            letter-spacing: 3px;
+            border-bottom: 1px solid rgba(191, 161, 129, 0.3);
+            padding-bottom: 15px;
+            display: inline-block;
+        }
+
+        .apropos-text-block p {
+            line-height: 1.9;
+            font-size: 1.05rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .apropos-text-block strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .apropos-text-block em {
+            color: var(--accent);
+            font-style: normal;
+        }
+
+        /* Alignements des rangées */
+        .apropos-row-left {
+            justify-content: space-between;
+        }
+
+        .apropos-row-left .apropos-text-block {
+            border-left: 2px solid var(--accent);
+            margin-right: 40px;
+        }
+
+        .apropos-row-right {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+
+        .apropos-row-right .apropos-text-block {
+            border-right: 2px solid var(--accent);
+            text-align: left;
+            margin-left: 40px;
+        }
+
+        /* Éléments spécifiques - Cards Italie */
+        .apropos-cards-italy-wrapper {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+            justify-content: center;
+        }
+
+        .apropos-italy-card {
+            width: 100px;
+            height: 130px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-top: 2px solid var(--italy-color);
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.3s;
+        }
+
+        .apropos-italy-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .apropos-italy-card h4 {
+            font-family:'Space Mono';
+            font-size: 9px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* Grille littéraire */
+        .apropos-lit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .apropos-lit-card {
+            background: rgba(191, 161, 129, 0.03);
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid rgba(191, 161, 129, 0.15);
+            transition: background 0.3s;
+        }
+
+        .apropos-lit-card:hover {
+            background: rgba(191, 161, 129, 0.06);
+        }
+
+        .apropos-lit-card h3 {
+            color: var(--accent);
+            font-size: 11px;
+            font-family: 'Space Mono';
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            padding: 0;
+        }
+
+        .apropos-lit-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .apropos-content-row {
+                flex-direction: column;
+                margin-bottom: 100px;
+            }
+
+            .apropos-row-right {
+                flex-direction: column;
+            }
+
+            .apropos-text-block {
+                flex: 0 0 100%;
+                width: 100%;
+                margin: 0 0 30px 0;
+                padding: 30px;
+            }
+
+            .apropos-visual-container {
+                flex: 0 0 100%;
+                width: 100%;
+                height: 300px;
+            }
+        }
 
         /* ========== PROJETS (03) ========== */
         .projets-title {
@@ -830,7 +1055,81 @@
 
         <!-- ========== À PROPOS ========== -->
         <div class="section" data-section="1">
-            <!-- Section nettoyée - À reconstruire -->
+            <div class="apropos-wrapper">
+                <div class="apropos-content-wrapper">
+
+                    <div class="apropos-content-row apropos-row-left">
+                        <div class="apropos-text-block">
+                            <h2>01 // Situation Initiale — Qui suis-je ?</h2>
+                            <p>Au CDI du collège, j'ai découvert deux mondes : <strong>Percy Jackson</strong> et <strong>Scratch</strong>. L'un vivait des histoires, l'autre permettait d'en créer. Mais quand mes camarades programmaient des jeux de vaisseaux spatiaux avec collisions et scores, moi je passais mes heures à animer des évolutions Pokémon. Le résultat visuel m'importait plus que la mécanique. Ce n'était pas le système qui me fascinait, c'était le mouvement, la transformation à l'écran, le processus de création.</p>
+                            <p>Au lycée, Python en cours de maths a tout cassé. Des équations que je ne comprenais déjà pas, traduites dans un langage qui me restait opaque. J'en ai tiré une conclusion simple et fausse : le code, c'était ça, des mathématiques inaccessibles. Pas pour moi. Cette conviction m'a suivi pendant des années.</p>
+                            <p>Aujourd'hui je suis en 2e année de Métiers du Livre à Bordeaux Montaigne. Un parcours qui peut sembler éloigné du numérique, mais c'est justement ici, dans un cours de développement web, que tout a basculé. Le code n'était finalement pas qu'affaire d'équations : il était régi par une logique que je pouvais comprendre. Il pouvait être visuel, organique, vivant.</p>
+                        </div>
+                        <div class="apropos-visual-container" id="apropos-scene-1"></div>
+                    </div>
+
+                    <div class="apropos-content-row apropos-row-right">
+                        <div class="apropos-text-block">
+                            <h2>02 // Élément Déclencheur — Le premier site</h2>
+                            <p>Il y a un an, j'ai créé mon premier site web lors d'un cours d'informatique. Le sujet : l'Italie. Trois sections en cards – Nourriture, Monuments, Villes – structurées en HTML et stylisées en CSS. Les bases les plus basiques de la basitude.</p>
+
+                            <div class="apropos-cards-italy-wrapper">
+                                <div class="apropos-italy-card" style="--italy-color: #ff4757"><h4>FOOD</h4></div>
+                                <div class="apropos-italy-card" style="--italy-color: #ffffff"><h4>ART</h4></div>
+                                <div class="apropos-italy-card" style="--italy-color: #2ed573"><h4>CITY</h4></div>
+                            </div>
+
+                            <p>Mais j'ai aimé le faire. Pas seulement le résultat, dont l'UI me laissait un peu dubitatif, mais le processus lui-même : structurer l'information, choisir les couleurs, voir mes modifications s'afficher en direct. J'y ai passé plus de temps que les autres. Pas par obligation, mais parce que quelque chose dans cette façon de créer me plaisait vraiment. J'ai eu la meilleure note de ma promo pour ce projet.</p>
+                            <p><strong>Et là, j'ai compris.</strong> Le code n'était pas cette abstraction mathématique que ma pauvre expérience en Python m'avait laissée croire. Il pouvait être visuel, accessible et même gratifiant. Un chemin que je pensais fermé venait de s'ouvrir. <em>Tu peux être tout ce que tu veux</em> disait la pub de Lego, moi j'ai décidé d'être créateur de monde.</p>
+                        </div>
+                        <div class="apropos-visual-container" id="apropos-scene-2"></div>
+                    </div>
+
+                    <div class="apropos-content-row apropos-row-left">
+                        <div class="apropos-text-block">
+                            <h2>03 // Péripétie — L'exploration</h2>
+                            <p>Après ce premier site, j'ai arrêté de voir le web comme un simple "exercice d'informatique" pour le cours du lundi matin. J'ai commencé à explorer tout ce qui gravite autour.</p>
+                            <p>D'abord <strong>Figma</strong>, pour sortir de la page statique et réfléchir en termes d'interface. Comment disposer les éléments pour que l'œil comprenne où aller ? Où placer un bouton, un menu, un titre ? Quels composants réutiliser, quels états prévoir ? Figma m'a appris qu'avant même une ligne de code, on peut déjà raconter quelque chose avec des blocs, des espacements et des couleurs.</p>
+                            <p>Puis il y a eu une <strong>vidéo de promotion de livre</strong> pour le festival Les Escales du Livre. Une vraie première fois en tournage et en montage : écrire un script, découper en plans, gérer le cadrage, le son, le rythme, le lien entre texte et image. Là encore, même logique : comment adapter un objet (un livre) à un autre médium (une courte vidéo), sans perdre son intention ?</p>
+                            <p>En parallèle, mes cours de culture numérique — ceux que j'attendais le plus dans la semaine — m'ont ouvert une autre porte : comprendre d'où vient tout ça. J'ai commencé à lire sur les pionniers de l'informatique et du web, de Pascal à Ampère en passant par Turing, d'Ada Lovelace à Blackwell, pour ne citer qu'eux, <em>non sans hasard :)</em>. Pas pour les réciter, mais pour comprendre ce qui se joue derrière les interfaces qu'on utilise tous les jours.</p>
+                            <p>Quand est venu le moment de concevoir <strong>mon portfolio</strong>, j'ai fait un choix simple : je ne voulais pas d'un site WordPress ou d'un template préfabriqué. Je voulais un site codé de A à Z, même si ça impliquait de me confronter à mes limites techniques.</p>
+                            <p>Pour ne pas rester bloqué, j'ai décidé d'utiliser l'IA en mode <em>vibe coding</em>. Concrètement, je pars d'une intention précise : « je veux telle interaction », « telle animation 3D », « telle structure de page ». Je décris ce que je veux, l'IA propose du code, et je travaille dessus : je teste, je modifie des paramètres, je casse des choses, je regarde ce que ça change. Je ne prétends pas comprendre chaque ligne dans le détail, mais je vois ce que fait chaque bloc important, où agir pour changer un comportement, et pourquoi tel effet est là.</p>
+                            <p>J'ai volontairement intégré du JavaScript plus poussé — <strong>Three.js, 3D, systèmes de particules</strong> — pour casser le modèle du simple site en une page qui scrolle de haut en bas. Pour moi, un portfolio est une vitrine : il doit montrer, dès le premier regard, le type d'expériences que j'ai envie de créer.</p>
+                            <p>Ce projet m'a permis de mesurer à la fois ce que je suis déjà capable de faire avec de la débrouille, de la curiosité et l'IA comme outil, <strong>et</strong> les limites de cette approche. Je peux concevoir, expérimenter, ajuster, mais je sens bien qu'il me manque encore les bases techniques solides pour être pleinement autonome. C'est précisément cette marche que je veux franchir.</p>
+                        </div>
+                        <div class="apropos-visual-container" id="apropos-scene-3"></div>
+                    </div>
+
+                    <div class="apropos-content-row apropos-row-right">
+                        <div class="apropos-text-block">
+                            <h2>04 // L'Approche Littéraire — Un atout</h2>
+                            <p>Je viens d'un parcours littéraire et éditorial. Loin d'être un handicap, c'est ce qui structure aujourd'hui ma manière d'aborder le numérique.</p>
+                            <div class="apropos-lit-grid">
+                                <div class="apropos-lit-card"><h3>Structurer l'information</h3><p>Métiers du Livre m'a appris à organiser le chaos : hiérarchiser des contenus, construire un sommaire, penser un parcours de lecture. Cette rigueur éditoriale est la base de tout bon projet numérique.</p></div>
+                                <div class="apropos-lit-card"><h3>Analyser les enjeux</h3><p>Les enseignements autour de la chaîne du livre m'ont appris à ne jamais regarder un objet culturel uniquement par sa surface. Qui décide ? Pour qui ? Avec quelles contraintes ? Un site n'est jamais neutre.</p></div>
+                                <div class="apropos-lit-card"><h3>Communiquer clairement</h3><p>Le travail d'écriture m'a donné un réflexe simple : si ce n'est pas clair, ça ne fonctionne pas. Une interface, comme un texte, est une forme de conversation.</p></div>
+                                <div class="apropos-lit-card"><h3>Penser l'usage</h3><p>Quand j'étais délégué au lycée, je transformais les questionnaires en diagrammes. Mon objectif n'était pas de faire des "jolis graphiques", mais de rendre l'information actionnable. C'était déjà de l'UX.</p></div>
+                            </div>
+                            <p style="margin-top:20px;">Avec le recul, c'était déjà une forme d'UX : partir des besoins des autres, organiser les données, choisir une forme visuelle qui facilite la décision. <strong>En MMI, c'est exactement cette démarche que je veux continuer, simplement avec d'autres outils et à une autre échelle.</strong></p>
+                        </div>
+                        <div class="apropos-visual-container" id="apropos-scene-4"></div>
+                    </div>
+
+                    <div class="apropos-content-row apropos-row-left">
+                        <div class="apropos-text-block">
+                            <h2>05 // Situation Finale — Et maintenant ?</h2>
+                            <p>La situation finale n'existe pas encore. Ce portfolio marque une étape : un état des lieux honnête de ce que j'ai exploré jusqu'ici, de mes intuitions comme de mes limites actuelles.</p>
+                            <p><strong>MMI représente pour moi la suite logique de ce parcours.</strong> Après avoir appris à penser des contenus, des lectures, des objets éditoriaux, je veux maintenant apprendre à maîtriser les outils qui donnent forme aux expériences numériques : développement web, design d'interfaces, narration interactive. Il me manque aujourd'hui l'autonomie technique pour réaliser seul ce que je suis déjà capable de concevoir.</p>
+                            <p>Ce que je viens chercher en MMI, c'est donc une double chose :<br>– des compétences solides en développement et en conception multimédia,<br>– et un environnement de projets, de collaborations, d'expérimentations, où je pourrai confronter mes idées à la réalité technique et au regard des autres.</p>
+                            <p><strong>À terme</strong>, je me vois travailler à l'interface entre contenu et technique : que ce soit en édition numérique, en agence web ou en conception de projets hybrides (livre, web, vidéo, installation…), je veux être capable de porter des projets où la forme n'est jamais détachée du sens. Les titres exacts comptent moins que cette position d'interface : comprendre les enjeux éditoriaux, parler avec les développeurs, dialoguer avec les designers, et contribuer sur les deux plans.</p>
+                            <p>MMI, pour moi, n'est pas un virage brutal mais une continuité : le ruban de Möbius de mon parcours. Pas une fin, juste une transformation du même mouvement.</p>
+                        </div>
+                        <div class="apropos-visual-container" id="apropos-scene-5"></div>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="section-number">02<span>À propos</span></div>
         </div>
 
@@ -1459,6 +1758,129 @@
                 draggedCard = null;
             }
         });
+
+        // ========== SCÈNES 3D POUR LA SECTION À PROPOS ==========
+
+        const aproposScenesData = [];
+        const aproposCanvas = document.getElementById('canvas-container');
+
+        // Obtenir le renderer existant ou en créer un nouveau contexte
+        let aproposRenderer;
+        if (renderer) {
+            aproposRenderer = renderer;
+        }
+
+        function initAproposScene(containerId, type) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+
+            const aproposScene = new THREE.Scene();
+
+            // Caméra adaptée pour le layout
+            const aproposCamera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+            aproposCamera.position.z = 6;
+
+            const particlesGeo = new THREE.BufferGeometry();
+            const count = 500;
+            const pos = new Float32Array(count * 3);
+
+            for(let i=0; i<count*3; i+=3) {
+                if (type === 'chaos') {
+                    pos[i] = (Math.random()-0.5)*5;
+                    pos[i+1] = (Math.random()-0.5)*5;
+                    pos[i+2] = (Math.random()-0.5)*5;
+                } else if (type === 'cube') {
+                    pos[i] = (Math.random()-0.5)*3.5;
+                    pos[i+1] = (Math.random()-0.5)*3.5;
+                    pos[i+2] = (Math.random()-0.5)*3.5;
+                } else if (type === 'wave') {
+                    const x = (Math.random()-0.5)*5;
+                    pos[i] = x;
+                    pos[i+1] = Math.sin(x*3);
+                    pos[i+2] = (Math.random()-0.5)*1.5;
+                } else if (type === 'ring') {
+                    const angle = Math.random() * Math.PI * 2;
+                    const r = 2 + Math.random()*0.3;
+                    pos[i] = Math.cos(angle) * r;
+                    pos[i+1] = Math.sin(angle) * r;
+                    pos[i+2] = (Math.random()-0.5)*0.5;
+                }
+            }
+
+            particlesGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+
+            // Matériau
+            const mat = new THREE.PointsMaterial({
+                color: 0xBFA181,
+                size: 0.07,
+                transparent: true,
+                opacity: 0.8
+            });
+            const aproposMesh = new THREE.Points(particlesGeo, mat);
+            aproposScene.add(aproposMesh);
+
+            aproposScenesData.push({
+                container,
+                scene: aproposScene,
+                camera: aproposCamera,
+                mesh: aproposMesh
+            });
+        }
+
+        // Initialiser les 5 scènes de la section À propos
+        initAproposScene('apropos-scene-1', 'chaos');
+        initAproposScene('apropos-scene-2', 'cube');
+        initAproposScene('apropos-scene-3', 'wave');
+        initAproposScene('apropos-scene-4', 'ring');
+        initAproposScene('apropos-scene-5', 'chaos');
+
+        // Fonction de rendu pour les scènes À propos
+        function renderAproposScenes() {
+            if (currentSection !== 1) return; // Ne rendre que si on est sur la section À propos
+
+            const canvasRect = aproposCanvas.getBoundingClientRect();
+            aproposRenderer.setScissorTest(true);
+
+            aproposScenesData.forEach((data) => {
+                const rect = data.container.getBoundingClientRect();
+
+                // Skip si hors de vue
+                if (rect.bottom < 0 || rect.top > window.innerHeight ||
+                    rect.right < 0 || rect.left > window.innerWidth) return;
+
+                // Animation lente et premium
+                data.mesh.rotation.y += 0.002;
+                data.mesh.rotation.x += 0.001;
+
+                const width = rect.right - rect.left;
+                const height = rect.bottom - rect.top;
+                const left = rect.left;
+                const bottom = canvasRect.height - rect.bottom;
+
+                aproposRenderer.setViewport(left, bottom, width, height);
+                aproposRenderer.setScissor(left, bottom, width, height);
+                data.camera.aspect = width / height;
+                data.camera.updateProjectionMatrix();
+                aproposRenderer.render(data.scene, data.camera);
+            });
+
+            aproposRenderer.setScissorTest(false);
+        }
+
+        // Modifier la boucle d'animation existante pour inclure les scènes À propos
+        const originalAnimate = animate;
+        animate = function() {
+            requestAnimationFrame(animate);
+            camera.position.z += (targetCameraZ - camera.position.z) * 0.05;
+            document.getElementById('debug').textContent = `Section: ${currentSection} | Z: ${camera.position.z.toFixed(0)}`;
+            renderer.render(scene, camera);
+
+            // Rendre les scènes À propos si on est sur cette section
+            renderAproposScenes();
+        }
+
+        // Relancer l'animation avec la nouvelle fonction
+        animate();
     </script>
 </body>
 </html>
