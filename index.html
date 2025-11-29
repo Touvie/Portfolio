@@ -1420,6 +1420,7 @@
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
             renderer.setSize(window.innerWidth, window.innerHeight);
             renderer.setClearColor(0x0a0a0f, 1);
+            renderer.autoClear = false; // Désactiver auto-clear pour contrôler manuellement
             document.getElementById('canvas-container').appendChild(renderer.domElement);
 
             // Trou noir placeholder
@@ -1871,11 +1872,17 @@
         const originalAnimate = animate;
         animate = function() {
             requestAnimationFrame(animate);
+
+            // Effacer manuellement le canvas au début de chaque frame
+            renderer.clear();
+
             camera.position.z += (targetCameraZ - camera.position.z) * 0.05;
             document.getElementById('debug').textContent = `Section: ${currentSection} | Z: ${camera.position.z.toFixed(0)}`;
+
+            // Rendre la scène principale
             renderer.render(scene, camera);
 
-            // Rendre les scènes À propos si on est sur cette section
+            // Rendre les scènes À propos si on est sur cette section (par-dessus)
             renderAproposScenes();
         }
 
